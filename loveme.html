@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <style type="text/css">
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+#content {
+    text-align: center;
+    max-width: 90%; /* Limit the width */
+    margin: auto;
+}
+
+#animated-gif {
+    max-width: 100%; /* Ensure GIF is responsive */
+    height: auto;
+}
+
+#question-text {
+    margin-top: 20px;
+    font-size: 2vw; /* Responsive font size */
+    color: #333;
+}
+
+#yes-button, #no-button {
+    margin: 10px;
+    padding: 1vw 2vw; /* Responsive padding */
+    font-size: 1.5vw; /* Responsive font size */
+    cursor: pointer;
+}
+
+/* Media Queries for further responsiveness */
+@media (max-width: 600px) {
+    #animated-gif {
+        width: 50%; /* Adjust size on smaller screens */
+    }
+
+    #question-text, #yes-button, #no-button {
+        font-size: 4vw; /* Larger font for smaller screens */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    #animated-gif {
+        width: 70%; /* Adjust size on medium screens */
+    }
+
+    #question-text, #yes-button, #no-button {
+        font-size: 3vw; /* Adjust font size for medium screens */
+    }
+}
+
+    </style>
+    <div id="content">
+        <img src="https://media3.giphy.com/media/i8JQN7YrWzJ4CPnX7y/giphy.gif" alt="Animated GIF" id="animated-gif">
+        <p id="question-text">Do you love me bebe ?</p>
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+    </div>
+
+    <script>
+        const dogGif = document.getElementById('animated-gif');
+const yesButton = document.getElementById('yes-button');
+const noButton = document.getElementById('no-button');
+
+yesButton.addEventListener('click', function() {
+    dogGif.src = 'https://media2.giphy.com/media/GxW9W0MZihwU1EmwVP/giphy.gif';
+});
+
+noButton.addEventListener('mouseover', function() {
+    dogGif.src = 'https://media0.giphy.com/media/igNTSexSEGeJLdsb0M/giphy.gif?cid=ecf05e478xj0mgvz2fbgtzagsoglq5gega2tyfv8z9r0ya79&ep=v1_gifs_related&rid=giphy.gif&ct=g';
+    this.style.position = 'absolute';
+    this.style.top = Math.random() * window.innerHeight + 'px';
+    this.style.left = Math.random() * window.innerWidth + 'px';
+});
+
+noButton.addEventListener('mouseleave', function() {
+    dogGif.src = 'https://media3.giphy.com/media/i8JQN7YrWzJ4CPnX7y/giphy.gif';
+});
+
+    </script>
+</body>
+</html>
